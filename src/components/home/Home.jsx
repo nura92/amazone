@@ -53,6 +53,40 @@ function Home() {
             rating={4}
             img="	https://m.media-amazon.com/images/I/714pb94-8DL._AC_UY218_.jpg" />
         </div>
+        <div className="home_row">
+          <Product
+            id="123"
+            title="ESV Church Bible (Black) Hardcover – October 31"
+            price={11}
+            rating={4}
+            img="	https://m.media-amazon.com/images/I/61gPEiyt0iL._AC_UL320_.jpg"
+          />
+          <Product
+            id="1234"
+            title='"MNSDHFGV Blue Hardcover Quran Mushaf Holy Quran Arabic Only Medium Size 5.5 X 8 In Arabic Text Uthmani Script Cover Design may
+            "'
+            price={30}
+            rating={5}
+            img="https://m.media-amazon.com/images/I/91iGVv1WDGL._AC_UL320_.jpg"
+          />
+        </div>
+        <div className="home_row">
+          <Product id="1235"
+            title="Canon XA70 Pro Camcorder 1” 4K UHD CMOS Sensor, Dual-Pixel CMOS AF, 15x Optical Zoom, 600x Digital Zoom, Image Stabilization, HDMI, USB Live Streaming, Time Stamp On-Screen Disp. Recording, XLR inputs"
+            price={2299}
+            rating={4}
+            img="https://m.media-amazon.com/images/I/61vbYqOrB6L._AC_UY218_.jpg" />
+          <Product id="12311"
+            title="ZGFF Heavy Duty Gaming Chair, E-Sports Table Chair Integrated Cockpit, Ergonomic Computer Chair, Adjustable Comes with Massage Lumbar Support + Footrest"
+            price={24204}
+            rating={4}
+            img="https://m.media-amazon.com/images/I/61Y7LQP5+xL._AC_SX425_.jpg" />
+          <Product id="1236"
+            title="Gildan Men's Crew T-Shirts, Multipack, Style G1100"
+            price={9}
+            rating={4}
+            img="https://m.media-amazon.com/images/I/81X9VMM-I4L._AC_UL320_.jpg" />
+        </div>
       </div>
     </div>
   );

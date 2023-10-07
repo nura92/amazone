@@ -3,7 +3,7 @@ import { useStateValue } from "../StateProvider/StateProvider";
 import "./product.css";
 
 function Product({ id, title, price, rating, img }) {
-  const [ {basket}, dispach] = useStateValue();
+  const [{ basket }, dispach] = useStateValue();
   // console.log('this is the baseket',basket);
   const addtobasket = () => {
     // e.preventDefault()
@@ -30,8 +30,10 @@ function Product({ id, title, price, rating, img }) {
           <p>
             {Array(rating)
               .fill()
-              .map(() => (
-                <p>⭐</p>
+              .map((_, i) => (
+                <div key={i}>
+                  <p>⭐</p>
+                </div>
               ))}
           </p>
         </div>

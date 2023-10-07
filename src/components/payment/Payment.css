@@ -1,0 +1,43 @@
+.payment{
+  background-color: white;
+}
+.container_payment h1{
+margin-top: 30px;
+text-align: center;
+padding: 10px;
+font-weight:400 ;
+background-color: rgba(234,237,237);
+border: 1px solid lightgray;
+}
+.container_payment h1 a{
+  text-decoration: none;
+  color:black;
+}
+.payment_section{
+  display: flex;
+  padding: 20px;
+  margin: 0 20px;
+  border-bottom: 1px solid lightgray;
+}
+.payment_titel{
+  flex: 0.2;
+}
+.payment_detail{
+  flex: 0.5;
+}
+.payment_adress{
+  flex: 0.2;
+  font-weight: 200;
+  font-size: small;
+}
+.paymnet_butn{
+  background: #f0c14b;
+  width: 250px;
+  text-align: center;
+  height: 30px;
+  border: 1px solid;
+  border-radius: 10px;
+  margin-top: 10px;
+  color: #000;
+  border-color:#f0c14b #a88734 #846a29 ;
+}
