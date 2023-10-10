@@ -5,8 +5,8 @@ import Product from "../product/Product";
 
 function Home() {
   return (
-    <div className="home">
-      <div className="home_container">
+    <div>
+      <div >
         <img
           className="home_image"
           src="https://m.media-amazon.com/images/I/51AxBGnRSeL._SX1500_.jpg"
