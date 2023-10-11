@@ -10,9 +10,9 @@ app.use(express.json());
 
 app.get("/", (req, res) => res.status(200).send("heelo nura"));
 app.post("/payments/create", async (req, res) => {
-  const total = req.query.total;
-  console.log(`payement reques this amount`, total);
   try {
+    const total = req.query.total;
+    console.log(`payement reques this amount`, total);
     const paymentIntent = await stripe.paymentIntents.create({
       amount: parseInt(total),
       currency: "usd",

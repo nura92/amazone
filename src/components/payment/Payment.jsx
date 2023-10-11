@@ -13,7 +13,7 @@ import { db } from "../../util/Firebaseconfig";
 function Payment() {
   const [{ basket, user }, dispatch] = useStateValue();
   const stripe = useStripe();
-  const element = useElements();
+  const elements = useElements();
   const getbaskettotal = (basket) =>
     basket?.reduce((amount, items) => amount + items.price, 0);
 
@@ -21,7 +21,7 @@ function Payment() {
   const [disable, setDisable] = useState(true);
   const [success, setSuccess] = useState(false);
   const [processing, setProcessing] = useState("");
-  const [clientSecret, setclientSecret] = useState(true);
+  const [clientSecret, setclientSecret] = useState();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -37,34 +37,41 @@ function Payment() {
 
   console.log(" client sectrer", clientSecret);
 
-  // this submit place
   const handlesubmit = async (e) => {
     e.preventDefault();
     setProcessing(true);
-    const payload = await stripe
-      .confirmCardPayment(clientSecret, {
-        payment_method: {
-          card: element.getElement(CardElement),
-        },
-      })
-      .then(({ paymentIntent }) => {
-        db.collection("users").doc(user?.uid).collection("orders").doc(paymentIntent.id).set({
-          basket: basket,
-          amount: paymentIntent.amount,
-          created: paymentIntent.created,
-        });
+    try {
+      const payload = await stripe
+        .confirmCardPayment(clientSecret, {
+          payment_method: {
+            card: elements.getElement(CardElement),
+          },
+        })
+        .then(({ paymentIntent }) => {
+          db.collection("users")
+            .doc(user?.uid)
+            .collection("orders")
+            .doc(paymentIntent?.id)
+            .set({
+              basket: basket,
+              amount: paymentIntent.amount,
+              created: paymentIntent.created,
+            });
 
-        setSuccess(true);
-        setProcessing(false);
-        seterror(null);
+          setSuccess(true);
+          setProcessing(false);
+          seterror(null);
 
-        dispatch({
-          type: "EMPTY_BASKET",
+          dispatch({
+            type: "EMPTY_BASKET",
+          });
+          navigate("/orders");
         });
-        navigate("/orders");
-      });
+    } catch (error) {
+      console.log(error.message);
+    }
   };
-  // this handle change place
+
   const handlechange = (e) => {
     setDisable(e.empty);
     seterror(e.error ? e.error.message : "");
